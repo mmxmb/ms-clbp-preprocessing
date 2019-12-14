@@ -56,7 +56,7 @@ This command in turn calls `ms_clbp_preprocessing/preprocessing.py`. Examine tha
 * `dataset_path`
 * `target_path`
 
-By default, these values are set to what was used in the experiment. The only thing required to make this code work with default settings is to load the dataset into `dataset` directory; one directory per class. _UC Merced Land Use Dataset_ is available [here](UC Merced Land Use Dataset). 
+By default, these values are set to what was used in the experiment. The only thing required to make this code work with default settings is to load the dataset into `dataset` directory; one directory per class. _UC Merced Land Use Dataset_ is available [here](http://weegee.vision.ucmerced.edu/datasets/landuse.html).
 
 ### Training and evaluation
 
@@ -65,8 +65,11 @@ CNN training and evaluation code is located in `classification` directory in the
 ## Acknowledgements
 
 [1] T.Ojala,M.Pietikainen,andT.Maenpaa,“Multiresolutiongray-scaleand rotation invariant texture classification with local binary patterns,” IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 24, no. 7, pp. 971–987, July 2002.
+
 [2] C. Chen, W. Li, and Q. Du, “Remote sensing image scene classification using multi-scale completed local binary patterns and fisher vectors,” Remote Sensing, vol. 8, p. 483, 06 2016.
+
 [3] J. T. Springenberg, A. Dosovitskiy, T. Brox, and M. Riedmiller, “Striv- ing for Simplicity: The All Convolutional Net,” arXiv e-prints, p. arXiv:1412.6806, Dec 2014.
+
 [4] F. Juefei-Xu, V. Naresh Boddeti, and M. Savvides, “Local Binary Con- volutional Neural Networks,” arXiv e-prints, p. arXiv:1608.06049, Aug 2016.
 
 ## License
