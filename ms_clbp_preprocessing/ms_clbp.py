@@ -6,10 +6,6 @@ from typing import List, Tuple, NewType
 
 Matrix = NewType('Matrix', np.ndarray)
 
-def normalize(mat: Matrix, new_min: float=0, new_max: float=1) -> Matrix:
-    _min, _max = np.amin(mat), np.amax(mat)
-    return np.multiply(mat - _min, (new_max - new_min) / (_max - _min)) + new_min
-
 
 def rescale_img(image: Matrix, scales: List[float]) -> List[Matrix]:
     """ Creates list of rescaled copies of `image`,
@@ -54,11 +50,10 @@ def crop_center(image: Matrix, crop_x: int, crop_y: int) -> Matrix:
     return image[start_y:start_y + crop_y, start_x:start_x + crop_x].copy()
 
 
-
-def variable_scale_ms_clbp(image: Matrix, scales: List[float], n_points: int, radius int, patch_size: int, n_bins: int) -> Matrix:
+def variable_scale_ms_clbp(image: Matrix, scales: List[float], n_points: int, radius: int, patch_size: int, n_bins: int) -> Matrix:
     """ Calculate Multi-Scale CLBP for a given radius of LBP operator.
     """
-    rescaled_imgs = rescale_img(image, scales) # create rescaled copies of image
+    rescaled_imgs = rescale_img(image, scales)  # create rescaled copies of image
     feature_matrix = []
     for rescaled_img in rescaled_imgs:
 
@@ -70,7 +65,6 @@ def variable_scale_ms_clbp(image: Matrix, scales: List[float], n_points: int, ra
 
         # partition CLBP images into overlapping patches
         clbp_s_patches = overlapping_patch_partition(clbp_s, patch_size)
-        print(clbp_s.shape, len(clbp_s_patches))
         clbp_m_patches = overlapping_patch_partition(clbp_m, patch_size)
 
         # calculate feature vector for each patch
@@ -96,4 +90,3 @@ def ms_clbp_feature_matrices(image: Matrix, scales: List[float], n_points: int, 
         feature_matrix = variable_scale_ms_clbp(image, scales, n_points, radius, patch_size, n_bins)
         matrices.append(feature_matrix)
     return matrices
-
