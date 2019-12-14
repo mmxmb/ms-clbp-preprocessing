@@ -38,6 +38,8 @@ The easiest way to install all dependencies, including forked `scikit-image` is 
 make install
 ```
 
+This step might take a while.
+
 ### Preprocessing
 
 You can preprocess a dataset using MS-CLBP method using the following command:
@@ -45,6 +47,8 @@ You can preprocess a dataset using MS-CLBP method using the following command:
 ```
 make run
 ```
+
+This step will definitely take a while. Even though multiprocessing is used, it still takes several minutes per ~100 256x256 images.
 
 This command in turn calls `ms_clbp_preprocessing/preprocessing.py`. Examine that file and set the appropriate values for the following variables:
 * `scales`
